@@ -9,7 +9,6 @@ namespace ContactBook.DAL
         protected IDbConnection connection;
         public BaseRepository()
         {
-            string connectionString = @"Data Source=DuyLe\sqlexpress;Initial Catalog=WebContactBook;Integrated Security=True";
             connection = new SqlConnection(connectionString);
         }
     }
