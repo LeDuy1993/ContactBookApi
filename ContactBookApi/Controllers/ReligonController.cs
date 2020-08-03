@@ -1,5 +1,6 @@
 ﻿using ContactBook.DAL.Interface;
 using ContactBook.Domain.Responses.Course;
+using ContactBook.Domain.Responses.Religion;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace ContactBookApi.Controllers
             this.religionRepository = religionRepository;
         }
 
-       
+        [HttpGet]
+        [Route("/api/religion/GetReligionAll")]
+        public async Task<IEnumerable<GetReligionAll>> Gets()
+        {
+            return await religionRepository.GetReligionAll();
+        }
     }
 }
