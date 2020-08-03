@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Responses\" />
     <Folder Include="Repuests\" />
+    <Folder Include="Responses\Degree\" />
+    <Folder Include="Responses\NewFolder\" />
   </ItemGroup>
 
 </Project>
