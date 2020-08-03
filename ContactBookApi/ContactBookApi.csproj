@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
@@ -13,7 +20,9 @@
 		<ProjectReference Include="..\ContactBook.Domain\ContactBook.Domain.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Models\" />
+	  <Folder Include="Database\Data\" />
+	  <Folder Include="Database\Init\" />
+	  <Folder Include="Database\Schema\" />
 	</ItemGroup>
 
 </Project>
