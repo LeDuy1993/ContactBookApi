@@ -27,6 +27,7 @@ namespace ContactBookApi
         {
             services.AddControllers();
             services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<INationRepository, NationRepository>();
             services.AddSwaggerGen();
         }
 
