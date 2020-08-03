@@ -27,6 +27,15 @@ namespace ContactBookApi
         {
             services.AddControllers();
             services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<IClassRepository, ClassRepository>();
+            services.AddScoped<IDegreeRepository, DegreeRepository>();
+            services.AddScoped<IGradeRepository, GradeRepository>();
+            services.AddScoped<IReligionRepository, ReligionRepository>();
+            services.AddScoped<ISemesterRepository, SemesterRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+
             services.AddSwaggerGen();
         }
 
