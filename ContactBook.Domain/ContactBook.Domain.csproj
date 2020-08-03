@@ -10,7 +10,6 @@
     <Folder Include="Responses\Class\" />
     <Folder Include="Responses\Grade\" />
     <Folder Include="Responses\Teacher\" />
-    <Folder Include="Responses\Student\" />
     <Folder Include="Responses\Semester\" />
     <Folder Include="Responses\Subject\" />
   </ItemGroup>
