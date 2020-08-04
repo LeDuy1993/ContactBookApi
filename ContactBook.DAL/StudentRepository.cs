@@ -12,6 +12,16 @@ namespace ContactBook.DAL
 {
     public class StudentRepository : BaseRepository, IStudentRepository
     {
+        public async Task<DeleteStudentResult> Delete(int studentId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@StudentId", studentId);
+            return await SqlMapper.QueryFirstOrDefaultAsync<DeleteStudentResult>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Delete_Student",
+                            commandType: CommandType.StoredProcedure);
+        }
+
         public async Task<IEnumerable<GetStudentAll>> GetStudentAll()
         {
             return await SqlMapper.QueryAsync<GetStudentAll>(connection, "sp_Get_StudentAll", CommandType.StoredProcedure);

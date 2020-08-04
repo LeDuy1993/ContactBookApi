@@ -49,5 +49,12 @@ namespace ContactBookApi.Controllers
         {
             return await studentRepository.Save(request);
         }
+
+        [HttpDelete]
+        [Route("/api/student/delete/{id}")]
+        public async Task<DeleteStudentResult> Delete(int id)
+        {
+            return await studentRepository.Delete(id);
+        }
     }
 }
