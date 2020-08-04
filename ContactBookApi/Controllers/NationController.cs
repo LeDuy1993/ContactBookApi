@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace ContactBookApi.Controllers
 {
     /// <summary>
-    /// 
+    /// Nation controller
     /// </summary>
     [ApiController]
     public class NationController : ControllerBase
