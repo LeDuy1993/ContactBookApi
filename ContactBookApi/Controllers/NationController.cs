@@ -10,6 +10,9 @@ using Microsoft.Extensions.Logging;
 
 namespace ContactBookApi.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController]
     public class NationController : ControllerBase
     {
