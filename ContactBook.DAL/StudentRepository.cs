@@ -1,4 +1,5 @@
 ﻿using ContactBook.DAL.Interface;
+using ContactBook.Domain.Repuests.Student;
 using ContactBook.Domain.Responses.Course;
 using ContactBook.Domain.Responses.Student;
 using Dapper;
@@ -11,6 +12,16 @@ namespace ContactBook.DAL
 {
     public class StudentRepository : BaseRepository, IStudentRepository
     {
+        public async Task<DeleteStudentResult> Delete(int studentId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@StudentId", studentId);
+            return await SqlMapper.QueryFirstOrDefaultAsync<DeleteStudentResult>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Delete_Student",
+                            commandType: CommandType.StoredProcedure);
+        }
+
         public async Task<IEnumerable<GetStudentAll>> GetStudentAll()
         {
             return await SqlMapper.QueryAsync<GetStudentAll>(connection, "sp_Get_StudentAll", CommandType.StoredProcedure);
@@ -36,37 +47,40 @@ namespace ContactBook.DAL
                             sql: "sp_Get_StudentDetail",
                             commandType: CommandType.StoredProcedure));
         }
-        /* public async Task<SaveStudent> SaveStudent(Student request)
-         {
-             try
-             {
-                 DynamicParameters parameters = new DynamicParameters();
-                 parameters.Add("@StudentId", request.StudentId);
-                 parameters.Add("@FirstName", request.FirstName);
-                 parameters.Add("@LastName", request.LastName);
-                 parameters.Add("@Gender", request.Gender);
-                 parameters.Add("@DayOfBirth", request.DayOfBirth);
-                 parameters.Add("@PlaceOfBirth", request.PlaceOfBirth);
-                 parameters.Add("@Address", request.Address);
-                 parameters.Add("@NationId", request.NationName);
-                 parameters.Add("@FartherName", request.FartherName);
-                 parameters.Add("@MortherName", request.MortherName);
-                 parameters.Add("@JobName", request.JobName);
-                 parameters.Add("@PhoneNumber", request.PhoneNumber);
-                 parameters.Add("@AvatarPath", request.AvatarPath);
-                 return (await SqlMapper.QueryFirstOrDefaultAsync<SaveStudent>(cnn: connection,
-                                             sql: "sp_Save_Student",
-                                             param: parameters,
-                                             commandType: CommandType.StoredProcedure));
-             }
-             catch (Exception ex)
-             {
-                 return new SaveStudent()
-                 {
-                     StudentId = 0,
-                     Message = "Something went wrong, please try again"
-                 };
-             }
-         }*/
+
+        public async Task<SaveStudentResult> Save(SaveStudentRequest request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@StudentId", request.StudentId);
+                parameters.Add("@FirstName", request.FirstName);
+                parameters.Add("@LastName", request.LastName);
+                parameters.Add("@Gender", request.Gender);
+                parameters.Add("@DayOfBirth", request.DayOfBirth);
+                parameters.Add("@PlaceOfBirth", request.PlaceOfBirth);
+                parameters.Add("@Address", request.Address);
+                parameters.Add("@NationId", request.NationName);
+                parameters.Add("@ReligionId", request.ReligionName);
+                parameters.Add("@FartherName", request.FartherName);
+                parameters.Add("@MortherName", request.MortherName);
+                parameters.Add("@JobName", request.JobName);
+                parameters.Add("@PhoneNumber", request.PhoneNumber);
+                parameters.Add("@AvatarPath", request.AvatarPath);
+                return (await SqlMapper.QueryFirstOrDefaultAsync<SaveStudentResult>(cnn: connection,
+                                            sql: "sp_Save_Student",
+                                            param: parameters,
+                                            commandType: CommandType.StoredProcedure));
+            }
+            catch (Exception ex)
+            {
+                return new SaveStudentResult()
+                {
+                    StudentId = 0,
+                    Message = "Something went wrong, please try again"
+                };
+            }
+        }
+   
     }
 }
