@@ -1,5 +1,6 @@
 ﻿using ContactBook.DAL.Interface;
 using ContactBook.Domain.Responses.Course;
+using ContactBook.Domain.Responses.Grade;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace ContactBookApi.Controllers
             this.gradeRepository = gradeRepository;
         }
 
-       
+        [HttpGet]
+        [Route("/api/grade/GetGradeAll")]
+        public async Task<IEnumerable<GetGradeAll>> GetGradeAll()
+        {
+            return await gradeRepository.GetGradeAll();
+        }
     }
 }
