@@ -1,4 +1,5 @@
-﻿using ContactBook.Domain.Responses.Course;
+﻿using ContactBook.Domain.Repuests.Course;
+using ContactBook.Domain.Responses.Course;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,6 @@ namespace ContactBook.DAL.Interface
         Task<IEnumerable<GetCourseAll>> GetCourseAll();
         Task<GetCourseAll> GetCourseById(int courseId);
         //Task<DeleteCourseResult> Delete(int courseId);
-        //Task<SaveCourseResult> Save(SaveCourseRequest request);
+        Task<SaveCourseResult> Save(SaveCourseRequest request);
     }
 }

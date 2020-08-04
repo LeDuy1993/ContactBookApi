@@ -1,4 +1,5 @@
 ﻿using ContactBook.DAL.Interface;
+using ContactBook.Domain.Repuests.Course;
 using ContactBook.Domain.Responses.Course;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -43,12 +44,12 @@ namespace ContactBookApi.Controllers
             return await courseRepository.GetCourseById(id);
         }
 
-        //[HttpPost]
-        //[Route("/api/teacher/save")]
-        //public async Task<SaveTeacherResult> Save(SaveTeacherRequest request)
-        //{
-        //    return await teacherRepository.Save(request);
-        //}
+        [HttpPost]
+        [Route("/api/course/save")]
+        public async Task<SaveCourseResult> Save(SaveCourseRequest request)
+        {
+            return await courseRepository.Save(request);
+        }
 
 
         //[HttpDelete]

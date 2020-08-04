@@ -1,6 +1,8 @@
 ﻿using ContactBook.DAL.Interface;
+using ContactBook.Domain.Repuests.Course;
 using ContactBook.Domain.Responses.Course;
 using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
@@ -26,38 +28,28 @@ namespace ContactBook.DAL
                             commandType: CommandType.StoredProcedure));
         }
 
-        //public async Task<SaveTeacherResult> Save(SaveTeacherRequest request)
-        //{
-        //    try
-        //    {
-        //        DynamicParameters parameters = new DynamicParameters();
-        //        parameters.Add("@TeacherId", request.TeacherId);
-        //        parameters.Add("@TeacherName", request.TeacherName);
-        //        //parameters.Add("@DayOfBirth", DateTime.Parse(request.DayOfBirth));
-        //        parameters.Add("@DayOfBirth", request.DayOfBirth);
-        //        parameters.Add("@PlaceOfBirth", request.PlaceOfBirth);
-        //        parameters.Add("@Gender", bool.Parse(request.Gender));
-        //        parameters.Add("@Phone", request.Phone);
-        //        parameters.Add("@Address", request.Address);
-        //        parameters.Add("@SubjectId", request.SubjectId);
-        //        parameters.Add("@AvatarPath", request.AvatarPath);
-        //        parameters.Add("@DegreeId", request.DegreeId);
-        //        parameters.Add("@DayToWork", request.DayToWork);
-        //        return (await SqlMapper.QueryFirstOrDefaultAsync<SaveTeacherResult>(cnn: connection,
-        //                                    sql: "sp_Save_Teacher",
-        //                                    param: parameters,
-        //                                    commandType: CommandType.StoredProcedure));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new SaveTeacherResult()
-        //        {
-        //            TeacherId = 0,
-        //            Message = "Something went wrong, please try again"
-        //        };
-        //    }
+        public async Task<SaveCourseResult> Save(SaveCourseRequest request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@CourseId", request.CourseId);
+                parameters.Add("@CourseName", request.CourseName);
+                return (await SqlMapper.QueryFirstOrDefaultAsync<SaveCourseResult>(cnn: connection,
+                                            sql: "sp_Save_Course",
+                                            param: parameters,
+                                            commandType: CommandType.StoredProcedure));
+            }
+            catch (Exception ex)
+            {
+                return new SaveCourseResult()
+                {
+                    CourseId = 0,
+                    Message = "Something went wrong, please try again"
+                };
+            }
 
-        //}
+        }
 
         //public async Task<DeleteTeacherResult> Delete(int teacherId)
         //{
