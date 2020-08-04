@@ -35,6 +35,12 @@ namespace ContactBookApi.Controllers
             return await studentRepository.GetStudentDetail(id);
         }
 
+        [HttpGet]
+        [Route("/api/student/GetStudentByClassId/{classId}")]
+        public async Task<IEnumerable<GetStudentByClassId>> GetStudentByClassId(int classId)
+        {
+            return await studentRepository.GetStudentByClassId(classId);
+        }
         /*[HttpPost]
         [Route("/api/student/SaveStudent")]
         public async Task<SaveStudent> SaveStudent(Student request)
