@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repuests\" />
+    <Folder Include="Repuests\Student\" />
     <Folder Include="Responses\Degree\" />
     <Folder Include="Responses\Teacher\" />
     <Folder Include="Responses\Subject\" />
