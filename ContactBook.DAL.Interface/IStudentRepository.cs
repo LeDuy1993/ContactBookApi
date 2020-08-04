@@ -8,8 +8,9 @@ namespace ContactBook.DAL.Interface
 {
      public interface IStudentRepository
     {
-        public Task<IEnumerable<GetStudentAll>> GetStudentAll();
-        public Task<GetStudentDetail> GetStudentDetail(int studentid);
+        Task<IEnumerable<GetStudentAll>> GetStudentAll();
+        Task<GetStudentDetail> GetStudentDetail(int studentid);
+        Task<IEnumerable<GetStudentByClassId>> GetStudentByClassId(int classId);
 
     }
 }
