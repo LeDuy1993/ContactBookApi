@@ -8,6 +8,7 @@ namespace ContactBook.DAL.Interface
 {
      public interface IGradeRepository
     {
-        Task<IEnumerable<GetGradeAll>> GetGradeAll();
+        Task<IEnumerable<GradeView>> GetGradeAll();
+        Task<GradeView> GetGradeById(int gradeId);
     }
 }

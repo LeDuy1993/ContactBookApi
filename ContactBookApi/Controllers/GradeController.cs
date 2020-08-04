@@ -20,11 +20,27 @@ namespace ContactBookApi.Controllers
             this.gradeRepository = gradeRepository;
         }
 
+        /// <summary>
+        /// Get all grade
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("/api/grade/GetGradeAll")]
-        public async Task<IEnumerable<GetGradeAll>> GetGradeAll()
+        public async Task<IEnumerable<GradeView>> GetGradeAll()
         {
             return await gradeRepository.GetGradeAll();
+        }
+
+        /// <summary>
+        /// Get grade by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/api/grade/getGradeById/{id}")]
+        public async Task<GradeView> GetGradeById(int id)
+        {
+            return await gradeRepository.GetGradeById(id);
         }
     }
 }

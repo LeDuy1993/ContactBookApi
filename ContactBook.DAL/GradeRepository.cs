@@ -10,9 +10,22 @@ namespace ContactBook.DAL
 {
     public class GradeRepository : BaseRepository, IGradeRepository
     {
-        public async Task<IEnumerable<GetGradeAll>> GetGradeAll()
+        public async Task<GradeView> GetGradeById(int gradeId)
         {
-            return await SqlMapper.QueryAsync<GetGradeAll>(connection, "sp_Get_GradesAll", CommandType.StoredProcedure);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@GradeId", gradeId);
+            return (await SqlMapper.QueryFirstOrDefaultAsync<GradeView>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_GradeId",
+                            commandType: CommandType.StoredProcedure));
         }
+
+        public async Task<IEnumerable<GradeView>> GetGradeAll()
+        {
+            return await SqlMapper.QueryAsync<GradeView>(cnn: connection,
+                                                    sql: "sp_Get_Grade_All",
+                                                    commandType: CommandType.StoredProcedure);
+        }
+
     }
 }
