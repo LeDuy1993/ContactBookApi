@@ -11,7 +11,7 @@ namespace ContactBook.DAL.Interface
     {
         Task<IEnumerable<GetCourseAll>> GetCourseAll();
         Task<GetCourseAll> GetCourseById(int courseId);
-        //Task<DeleteCourseResult> Delete(int courseId);
+        Task<DeleteCourseResult> Delete(int courseId);
         Task<SaveCourseResult> Save(SaveCourseRequest request);
     }
 }

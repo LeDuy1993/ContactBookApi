@@ -52,11 +52,11 @@ namespace ContactBookApi.Controllers
         }
 
 
-        //[HttpDelete]
-        //[Route("/api/teacher/delete/{id}")]
-        //public async Task<DeleteTeacherResult> Delete(int id)
-        //{
-        //    return await teacherRepository.Delete(id);
-        //}
+        [HttpDelete]
+        [Route("/api/course/delete/{id}")]
+        public async Task<DeleteCourseResult> Delete(int id)
+        {
+            return await courseRepository.Delete(id);
+        }
     }
 }

@@ -51,14 +51,14 @@ namespace ContactBook.DAL
 
         }
 
-        //public async Task<DeleteTeacherResult> Delete(int teacherId)
-        //{
-        //    DynamicParameters parameters = new DynamicParameters();
-        //    parameters.Add("@TeacherId", teacherId);
-        //    return await SqlMapper.QueryFirstOrDefaultAsync<DeleteTeacherResult>(cnn: connection,
-        //                     param: parameters,
-        //                    sql: "sp_Delete_Teacher",
-        //                    commandType: CommandType.StoredProcedure);
-        //}
+        public async Task<DeleteCourseResult> Delete(int courseId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CourseId", courseId);
+            return await SqlMapper.QueryFirstOrDefaultAsync<DeleteCourseResult>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Delete_Course",
+                            commandType: CommandType.StoredProcedure);
+        }
     }
 }
