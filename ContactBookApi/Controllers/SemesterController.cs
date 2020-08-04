@@ -1,5 +1,6 @@
 ﻿using ContactBook.DAL.Interface;
 using ContactBook.Domain.Responses.Course;
+using ContactBook.Domain.Responses.Semester;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace ContactBookApi.Controllers
             this.semesterRepository = semesterRepository;
         }
 
-       
+        [HttpGet]
+        [Route("/api/semester/GetSemesterAll")]
+        public async Task<IEnumerable<GetSemesterAll>> GetSemesterAll()
+        {
+            return await semesterRepository.GetSemesterAll();
+        }
     }
 }

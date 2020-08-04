@@ -1,5 +1,6 @@
 ﻿using ContactBook.DAL.Interface;
 using ContactBook.Domain.Responses.Course;
+using ContactBook.Domain.Responses.Student;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ContactBookApi.Controllers
 {
+    
     public class StudentController : ControllerBase
     {
         private readonly ILogger<StudentController> _logger;
@@ -19,6 +21,31 @@ namespace ContactBookApi.Controllers
             this.studentRepository = studentRepository;
         }
 
-       
+        [HttpGet]
+        [Route("/api/student/GetStudentAll")]
+        public async Task<IEnumerable<GetStudentAll>> GetStudentAll()
+        {
+            return await studentRepository.GetStudentAll();
+        }
+
+        [HttpGet]
+        [Route("/api/student/GetStudentDetail/{id}")]
+        public async Task<GetStudentDetail> GetStudentDetail(int id)
+        {
+            return await studentRepository.GetStudentDetail(id);
+        }
+
+        [HttpGet]
+        [Route("/api/student/GetStudentByClassId/{classId}")]
+        public async Task<IEnumerable<GetStudentByClassId>> GetStudentByClassId(int classId)
+        {
+            return await studentRepository.GetStudentByClassId(classId);
+        }
+        /*[HttpPost]
+        [Route("/api/student/SaveStudent")]
+        public async Task<SaveStudent> SaveStudent(Student request)
+        {
+            return await studentRepository.SaveStudent(request);
+        }*/
     }
 }
