@@ -33,6 +33,12 @@ namespace ContactBookApi.Controllers
         {
             return await teacherRepository.GetAllTeacher();
         }
+        [HttpGet]
+        [Route("/api/teacher/GetTeacherBySubjectId/{subjectId}")]
+        public async Task<IEnumerable<GetTeacherBySubjectId>> GetTeacherBySubjectId(int subjectId)
+        {
+            return await teacherRepository.GetTeacherBySubjectId(subjectId);
+        }
 
         /// <summary>
         /// Get teacher by id

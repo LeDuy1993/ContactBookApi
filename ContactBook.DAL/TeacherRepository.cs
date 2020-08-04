@@ -12,6 +12,15 @@ namespace ContactBook.DAL
 {
     public class TeacherRepository : BaseRepository, ITeacherRepository
     {
+        public async Task<IEnumerable<GetTeacherBySubjectId>> GetTeacherBySubjectId(int subjectId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@SubjectId", subjectId);
+            return (await SqlMapper.QueryAsync<GetTeacherBySubjectId>(cnn: connection,
+                             param: parameters,
+                             sql: "sp_Get_Teacher_bySubjectId",
+                             commandType: CommandType.StoredProcedure));
+        }
         public async Task<IEnumerable<TeacherView>> GetAllTeacher()
         {
             return await SqlMapper.QueryAsync<TeacherView>(cnn: connection,
