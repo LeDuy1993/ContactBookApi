@@ -29,19 +29,19 @@ namespace ContactBookApi.Controllers
         {
             return await courseRepository.GetCourseAll();
         }
-       
 
-        ///// <summary>
-        ///// Get teacher by id
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //[HttpGet]
-        //[Route("/api/teacher/GetTeacherById/{id}")]
-        //public async Task<TeacherView> GetTeacherById(int id)
-        //{
-        //    return await teacherRepository.GetTeacherById(id);
-        //}
+
+        /// <summary>
+        /// Get course by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/api/course/GetCourseById/{id}")]
+        public async Task<GetCourseAll> GetCourseById(int id)
+        {
+            return await courseRepository.GetCourseById(id);
+        }
 
         //[HttpPost]
         //[Route("/api/teacher/save")]

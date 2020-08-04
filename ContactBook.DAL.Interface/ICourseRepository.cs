@@ -9,7 +9,7 @@ namespace ContactBook.DAL.Interface
     public interface ICourseRepository
     {
         Task<IEnumerable<GetCourseAll>> GetCourseAll();
-        //Task<GetCourseAll> GetCourseById(int courseId);
+        Task<GetCourseAll> GetCourseById(int courseId);
         //Task<DeleteCourseResult> Delete(int courseId);
         //Task<SaveCourseResult> Save(SaveCourseRequest request);
     }

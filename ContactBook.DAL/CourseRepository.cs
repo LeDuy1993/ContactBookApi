@@ -16,15 +16,15 @@ namespace ContactBook.DAL
                                                            commandType: CommandType.StoredProcedure);
         }
 
-        //public async Task<TeacherView> GetTeacherById(int teacherId)
-        //{
-        //    DynamicParameters parameters = new DynamicParameters();
-        //    parameters.Add("@TeacherId", teacherId);
-        //    return (await SqlMapper.QueryFirstOrDefaultAsync<TeacherView>(cnn: connection,
-        //                    param: parameters,
-        //                    sql: "sp_Get_Teacher_ById",
-        //                    commandType: CommandType.StoredProcedure));
-        //}
+        public async Task<GetCourseAll> GetCourseById(int courseId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CourseId", courseId);
+            return (await SqlMapper.QueryFirstOrDefaultAsync<GetCourseAll>(cnn: connection,
+                            param: parameters,
+                            sql: "sp_Get_CourseById",
+                            commandType: CommandType.StoredProcedure));
+        }
 
         //public async Task<SaveTeacherResult> Save(SaveTeacherRequest request)
         //{
