@@ -1,4 +1,5 @@
 ﻿using ContactBook.DAL.Interface;
+using ContactBook.Domain.Repuests.Student;
 using ContactBook.Domain.Responses.Course;
 using ContactBook.Domain.Responses.Student;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ContactBookApi.Controllers
 {
-    
+    [ApiController]
     public class StudentController : ControllerBase
     {
         private readonly ILogger<StudentController> _logger;
@@ -41,11 +42,19 @@ namespace ContactBookApi.Controllers
         {
             return await studentRepository.GetStudentByClassId(classId);
         }
-        /*[HttpPost]
-        [Route("/api/student/SaveStudent")]
-        public async Task<SaveStudent> SaveStudent(Student request)
+
+        [HttpPost]
+        [Route("/api/student/save")]
+        public async Task<SaveStudentResult> Save(SaveStudentRequest request)
         {
-            return await studentRepository.SaveStudent(request);
-        }*/
+            return await studentRepository.Save(request);
+        }
+
+        [HttpDelete]
+        [Route("/api/student/delete/{id}")]
+        public async Task<DeleteStudentResult> Delete(int id)
+        {
+            return await studentRepository.Delete(id);
+        }
     }
 }
