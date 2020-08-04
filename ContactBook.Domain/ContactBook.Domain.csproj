@@ -19,7 +19,7 @@
     <Folder Include="Repuests\Religion\" />
     <Folder Include="Responses\Degree\" />
     <Folder Include="Responses\Class\" />
-    <Folder Include="Responses\Grade\" />
+    <Folder Include="Responses\Teacher\" />
     <Folder Include="Responses\Semester\" />
   </ItemGroup>
 
