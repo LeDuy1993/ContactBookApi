@@ -12,11 +12,9 @@
 
   <ItemGroup>
     <Folder Include="Repuests\Class\" />
-    <Folder Include="Repuests\Course\" />
     <Folder Include="Repuests\Degree\" />
     <Folder Include="Repuests\Grade\" />
     <Folder Include="Repuests\Nation\" />
-    <Folder Include="Repuests\Subject\" />
     <Folder Include="Repuests\Semester\" />
     <Folder Include="Repuests\Religion\" />
     <Folder Include="Responses\Degree\" />
@@ -24,7 +22,6 @@
     <Folder Include="Responses\Grade\" />
     <Folder Include="Responses\Teacher\" />
     <Folder Include="Responses\Semester\" />
-    <Folder Include="Responses\Subject\" />
   </ItemGroup>
 
 </Project>
