@@ -60,5 +60,15 @@ namespace ContactBook.DAL
                 };
             }
         }
+
+        public async Task<IEnumerable<GetSubjectByClassId>> GetSubjectByClassId(int classId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@ClassId", classId);
+            return (await SqlMapper.QueryAsync<GetSubjectByClassId>(cnn: connection,
+                                         sql: "sp_Get_Subject_ByClassId",
+                                         param: parameters,
+                                         commandType: CommandType.StoredProcedure));
+        }
     }
 }
