@@ -1,4 +1,5 @@
-﻿using ContactBook.Domain.Responses.Class;
+﻿using ContactBook.Domain.Repuests.Class;
+using ContactBook.Domain.Responses.Class;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,5 +10,8 @@ namespace ContactBook.DAL.Interface
      public interface IClassRepository
     {
         Task<IEnumerable<GetClassAll>> GetClassAll();
+        Task<GetClassbyGradeIdCourseId> GetbygradeIdCourseId(int gradeId, int courseId);
+        Task<SaveClassResult> Save(SaveClassRequest request);
+        Task<DeleteClassResult> Delete(int classId);
     }
 }
