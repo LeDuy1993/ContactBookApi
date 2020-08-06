@@ -34,7 +34,7 @@ namespace ContactBookApi.Controllers
 
         [HttpGet]
         [Route("/api/class/get/{gradeId}/{courseId}")]
-        public async Task<GetClassbyGradeIdCourseId> GetbygradeIdCourseId(int gradeId, int courseId)
+        public async Task<IEnumerable<GetClassbyGradeIdCourseId>> GetbygradeIdCourseId(int gradeId, int courseId)
         {
             return await classRepository.GetbygradeIdCourseId(gradeId, courseId);
         }

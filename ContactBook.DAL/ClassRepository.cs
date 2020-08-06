@@ -22,14 +22,14 @@ namespace ContactBook.DAL
                             commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<GetClassbyGradeIdCourseId> GetbygradeIdCourseId(int gradeId, int courseId)
+        public async Task<IEnumerable<GetClassbyGradeIdCourseId>> GetbygradeIdCourseId(int gradeId, int courseId)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@GradeId", gradeId);
             parameters.Add("@CourseId", courseId);
-            return (await SqlMapper.QueryFirstOrDefaultAsync<GetClassbyGradeIdCourseId>(cnn: connection,
+            return (await SqlMapper.QueryAsync<GetClassbyGradeIdCourseId>(cnn: connection,
                              param: parameters,
-                            sql: "sp_Get_ClassAll",
+                            sql: "sp_Get_ClassRooms_ByCourseIdAndGradeId",
                             commandType: CommandType.StoredProcedure));
         }
 
