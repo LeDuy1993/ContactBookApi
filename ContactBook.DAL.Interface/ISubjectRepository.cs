@@ -10,6 +10,7 @@ namespace ContactBook.DAL.Interface
      public interface ISubjectRepository
     {
         Task<IEnumerable<GetSubjectAll>> GetSubjectAll();
+        Task<IEnumerable<GetSubjectByClassId>> GetSubjectByClassId(int subjectId);
         Task<GetSubjectById> GetSubjectById(int subjectId);
         Task<DeleteSubjectResult> Delete(int subjectId);
         Task<SaveSubjectResult> Save(SaveSubjectRequest request);

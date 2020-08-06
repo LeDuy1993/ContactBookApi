@@ -28,6 +28,12 @@ namespace ContactBookApi.Controllers
         {
             return await subjectRepository.GetSubjectAll();
         }
+        [HttpGet]
+        [Route("/api/subject/GetSubjectByClassId/{classId}")]
+        public async Task<IEnumerable<GetSubjectByClassId>> GetSubjectByClassId(int classId)
+        {
+            return await subjectRepository.GetSubjectByClassId(classId);
+        }
 
         [HttpPost]
         [Route("/api/subject/save")]

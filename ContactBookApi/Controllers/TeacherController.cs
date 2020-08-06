@@ -33,6 +33,12 @@ namespace ContactBookApi.Controllers
         {
             return await teacherRepository.GetAllTeacher();
         }
+        [HttpGet]
+        [Route("/api/teacher/GetTeacherBySubjectId/{subjectId}")]
+        public async Task<IEnumerable<GetTeacherBySubjectId>> GetTeacherBySubjectId(int subjectId)
+        {
+            return await teacherRepository.GetTeacherBySubjectId(subjectId);
+        }
 
         /// <summary>
         /// Get teacher by id
@@ -45,7 +51,12 @@ namespace ContactBookApi.Controllers
         {
             return await teacherRepository.GetTeacherById(id);
         }
-
+        [HttpGet]
+        [Route("/api/teacher/GetTeacherByClassId/{classId}")]
+        public async Task<GetTeacherByClassId> GetTeacherByClassId(int classId)
+        {
+            return await teacherRepository.GetTeacherByClassId(classId);
+        }
         [HttpPost]
         [Route("/api/teacher/save")]
         public async Task<SaveTeacherResult> Save(SaveTeacherRequest request)
