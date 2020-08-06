@@ -14,5 +14,6 @@ namespace ContactBook.DAL.Interface
         Task<DeleteTeacherResult> Delete(int teacherId);
         Task<SaveTeacherResult> Save(SaveTeacherRequest request); 
         Task<IEnumerable<GetTeacherBySubjectId>> GetTeacherBySubjectId(int subjectId);
+        Task<GetTeacherByClassId> GetTeacherByClassId(int classId);
     }
 }
