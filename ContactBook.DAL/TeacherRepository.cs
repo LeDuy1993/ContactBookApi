@@ -28,11 +28,11 @@ namespace ContactBook.DAL
                                           commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<TeacherView> GetTeacherById(int teacherId)
+        public async Task<GetTeacherbyTeacherId> GetTeacherById(int teacherId)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@TeacherId", teacherId);
-            return (await SqlMapper.QueryFirstOrDefaultAsync<TeacherView>(cnn: connection,
+            return (await SqlMapper.QueryFirstOrDefaultAsync<GetTeacherbyTeacherId>(cnn: connection,
                             param: parameters,
                             sql: "sp_Get_Teacher_ById",
                             commandType: CommandType.StoredProcedure));
