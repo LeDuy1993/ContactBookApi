@@ -36,6 +36,7 @@ namespace ContactBookApi
             services.AddScoped<ISubjectRepository, SubjectRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<INationRepository, NationRepository>();
+            services.AddScoped<ISubjectResultRepository, SubjectResultRepository>();
             services.AddSwaggerGen();
         }
 

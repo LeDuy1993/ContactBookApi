@@ -17,7 +17,6 @@
     <Folder Include="Repuests\Semester\" />
     <Folder Include="Repuests\Religion\" />
     <Folder Include="Responses\Degree\" />
-    <Folder Include="Responses\Teacher\" />
     <Folder Include="Responses\Semester\" />
   </ItemGroup>
 
