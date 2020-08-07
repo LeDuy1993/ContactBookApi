@@ -10,7 +10,7 @@ namespace ContactBook.DAL.Interface
     public interface ITeacherRepository
     {
         Task<IEnumerable<TeacherView>> GetAllTeacher();
-        Task<TeacherView> GetTeacherById(int teacherId);
+        Task<GetTeacherbyTeacherId> GetTeacherById(int teacherId);
         Task<DeleteTeacherResult> Delete(int teacherId);
         Task<SaveTeacherResult> Save(SaveTeacherRequest request); 
         Task<IEnumerable<GetTeacherBySubjectId>> GetTeacherBySubjectId(int subjectId);

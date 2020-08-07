@@ -47,7 +47,7 @@ namespace ContactBookApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("/api/teacher/GetTeacherById/{id}")]
-        public async Task<TeacherView> GetTeacherById(int id)
+        public async Task<GetTeacherbyTeacherId> GetTeacherById(int id)
         {
             return await teacherRepository.GetTeacherById(id);
         }
