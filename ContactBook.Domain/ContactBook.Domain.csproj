@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Repuests\NewFolder\**" />
-    <EmbeddedResource Remove="Repuests\NewFolder\**" />
-    <None Remove="Repuests\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Repuests\Degree\" />
     <Folder Include="Repuests\Grade\" />
     <Folder Include="Repuests\Nation\" />

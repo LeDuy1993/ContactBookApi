@@ -11,5 +11,6 @@ namespace ContactBook.Domain.Responses.Class
         public int GradeId { get; set; }
         public int CourseId { get; set; }
         public int TeacherId { get; set; }
+        public string TeacherName { get; set; }
     }
 }

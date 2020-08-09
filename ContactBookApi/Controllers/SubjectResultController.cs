@@ -1,5 +1,7 @@
 ﻿using ContactBook.DAL.Interface;
 using ContactBook.Domain.Repuests.Subject;
+using ContactBook.Domain.Repuests.SubjectResult;
+using ContactBook.Domain.Responses;
 using ContactBook.Domain.Responses.Course;
 using ContactBook.Domain.Responses.Subject;
 using ContactBook.Domain.Responses.SubjectResult;
@@ -25,11 +27,22 @@ namespace ContactBookApi.Controllers
 
 
         [HttpGet]
-        [Route("/api/subjectResutl/GetSubjectCourseSemesterSubjectId/{courseId}/{semesterId}/{subjectId}")]
-        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int courseId, int semesterId,int subjectId)
+        [Route("/api/subjectResutl/GetSubjectCourseSemesterSubjectId/{courseId}/{semesterId}/{subjectId}/{classId}")]
+        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int courseId, int semesterId,int subjectId, int classId)
         {
-            return await subjectResultRepository.GetSubjectCourseSemesterSubjectId(courseId,semesterId,subjectId);
+            return await subjectResultRepository.GetSubjectCourseSemesterSubjectId(courseId,semesterId,subjectId,classId);
         }
-
+        [HttpPost]
+        [Route("/api/subjectResutl/SaveSubjectResult")]
+        public async Task<SaveResult> SaveSubjectResult(SaveResultPoint request)
+        {
+            return await subjectResultRepository.SaveSubjectResult(request);
+        }
+        [HttpGet]
+        [Route("/api/subjectResutl/GetAllTypePoint")]
+        public async Task<IEnumerable<GetAllTypePoint>> GetAllTypePoint()
+        {
+            return await subjectResultRepository.GetAllTypePoint();
+        }
     }
 }
