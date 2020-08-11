@@ -38,6 +38,12 @@ namespace ContactBookApi.Controllers
             return await nationRepository.Gets();
         }
 
+        [HttpGet]
+        [Route("/api/nation/getnationall")]
+        public async Task<IEnumerable<GetNationAll>> GetNationAll()
+        {
+            return await nationRepository.GetNationAll();
+        }
         /// <summary>
         /// Get nation by nation id
         /// </summary>
