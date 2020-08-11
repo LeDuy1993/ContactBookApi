@@ -13,8 +13,8 @@ namespace ContactBook.Domain.Repuests.Student
         public string DayOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }
         public string Address { get; set; }
-        public string NationName { get; set; }
-        public string ReligionName { get; set; }
+        public int NationId { get; set; }
+        public int ReligionId { get; set; }
         public string FartherName { get; set; }
         public string MortherName { get; set; }
         public string JobName { get; set; }

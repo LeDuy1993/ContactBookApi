@@ -60,8 +60,8 @@ namespace ContactBook.DAL
                 parameters.Add("@DayOfBirth", request.DayOfBirth);
                 parameters.Add("@PlaceOfBirth", request.PlaceOfBirth);
                 parameters.Add("@Address", request.Address);
-                parameters.Add("@NationId", request.NationName);
-                parameters.Add("@ReligionId", request.ReligionName);
+                parameters.Add("@NationId", request.NationId);
+                parameters.Add("@ReligionId", request.ReligionId);
                 parameters.Add("@FartherName", request.FartherName);
                 parameters.Add("@MortherName", request.MortherName);
                 parameters.Add("@JobName", request.JobName);
