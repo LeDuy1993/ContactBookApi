@@ -20,7 +20,6 @@
 		<ProjectReference Include="..\ContactBook.Domain\ContactBook.Domain.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Database\Data\" />
 	  <Folder Include="Database\Schema\" />
 	</ItemGroup>
 
