@@ -52,5 +52,11 @@ namespace ContactBookApi.Controllers
         {
             return await classRepository.Delete(id);
         }
+        [HttpGet]
+        [Route("/api/class/GetClassByClassId/{classId}")]
+        public async Task<GetClassByClassId> GetClassByClassId(int classId)
+        {
+            return await classRepository.GetClassByClassId(classId);
+        }
     }
 }
