@@ -20,7 +20,7 @@ namespace ContactBook.DAL
             parameters.Add("@SemesterId", request.SemesterId);
             parameters.Add("@SubjectId", request.SubjectId);
             parameters.Add("@TypePointId", request.TypePointId);
-            parameters.Add("@CourseId", request.CourseId);
+       
             parameters.Add("@ClassId", request.ClassId);
             parameters.Add("@Point", request.Point);
             parameters.Add("@SubjectResultId", request.SubjectResultId);
@@ -41,10 +41,10 @@ namespace ContactBook.DAL
                                                    commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int courseId, int semesterId, int subjecId, int classId)
+        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int semesterId, int subjecId, int classId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@CourseId", courseId);
+
             parameters.Add("@SemesterId", semesterId);
             parameters.Add("@SubjectId", subjecId);
             parameters.Add("@ClassId", classId);

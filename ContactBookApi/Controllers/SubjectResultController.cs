@@ -27,10 +27,10 @@ namespace ContactBookApi.Controllers
 
 
         [HttpGet]
-        [Route("/api/subjectResutl/GetSubjectCourseSemesterSubjectId/{courseId}/{semesterId}/{subjectId}/{classId}")]
-        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int courseId, int semesterId, int subjectId, int classId)
+        [Route("/api/subjectResutl/GetSubjectCourseSemesterSubjectId/{semesterId}/{subjectId}/{classId}")]
+        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int semesterId, int subjectId, int classId)
         {
-            return await subjectResultRepository.GetSubjectCourseSemesterSubjectId(courseId, semesterId, subjectId, classId);
+            return await subjectResultRepository.GetSubjectCourseSemesterSubjectId(semesterId, subjectId, classId);
         }
         [HttpGet]
         [Route("/api/subjectResutl/GetSubjectResultByCourseIdStudentId/{courseId}/{studentId}")]
