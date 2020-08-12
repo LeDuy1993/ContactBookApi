@@ -54,15 +54,15 @@ namespace ContactBook.DAL
                             commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<IEnumerable<GetSubjectResultByCourseIdStudentId>> GetSubjectResultByCourseIdStudentId(int courseId, int studentId)
+        public async Task<IEnumerable<GetSubjectResultByClassIdStudentId>> GetSubjectResultByClassIdStudentId(int classId, int studentId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@CourseId", courseId);
+            parameters.Add("@classId", classId);
             parameters.Add("@StudentId", studentId);
          
-            return await SqlMapper.QueryAsync<GetSubjectResultByCourseIdStudentId>(cnn: connection,
+            return await SqlMapper.QueryAsync<GetSubjectResultByClassIdStudentId>(cnn: connection,
                              param: parameters,
-                            sql: "sp_Get_SubjectResult_ByCourseId_StudentId",
+                            sql: "sp_Get_SubjectResult_ByClassId_StudentId",
                             commandType: CommandType.StoredProcedure);
         }
     }

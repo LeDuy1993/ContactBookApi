@@ -33,10 +33,10 @@ namespace ContactBookApi.Controllers
             return await subjectResultRepository.GetSubjectCourseSemesterSubjectId(semesterId, subjectId, classId);
         }
         [HttpGet]
-        [Route("/api/subjectResutl/GetSubjectResultByCourseIdStudentId/{courseId}/{studentId}")]
-        public async Task<IEnumerable<GetSubjectResultByCourseIdStudentId>> GetSubjectResultByCourseIdStudentId(int courseId, int studentId)
+        [Route("/api/subjectResutl/GetSubjectResultByCourseIdStudentId/{classId}/{studentId}")]
+        public async Task<IEnumerable<GetSubjectResultByClassIdStudentId>> GetSubjectResultByClassIdStudentId(int classId, int studentId)
         {
-            return await subjectResultRepository.GetSubjectResultByCourseIdStudentId(courseId,studentId);
+            return await subjectResultRepository.GetSubjectResultByClassIdStudentId(classId, studentId);
          }
         [HttpPost]
         [Route("/api/subjectResutl/SaveSubjectResult")]

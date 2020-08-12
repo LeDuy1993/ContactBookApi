@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ContactBook.Domain.Responses.SubjectResult
 {
-    public class GetSubjectResultByCourseIdStudentId
+    public class GetSubjectResultByClassIdStudentId
     {
         public int SubjectResultId { get; set; }
         public int StudentId { get; set; }
