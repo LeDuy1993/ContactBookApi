@@ -10,6 +10,7 @@ namespace ContactBook.DAL.Interface
     {
         Task<IEnumerable<NationView>> Gets();
         Task<NationView> Get(int nationId);
+        Task<IEnumerable<GetNationAll>> GetNationAll();
         //Task<IEnumerable<StudentView>> GetStudents(int nationId);
 
     }

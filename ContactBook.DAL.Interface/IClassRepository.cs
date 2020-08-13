@@ -13,5 +13,6 @@ namespace ContactBook.DAL.Interface
         Task<IEnumerable<GetClassbyGradeIdCourseId>> GetbygradeIdCourseId(int gradeId, int courseId);
         Task<SaveClassResult> Save(SaveClassRequest request);
         Task<DeleteClassResult> Delete(int classId);
+        Task<GetClassByClassId> GetClassByClassId(int classId);
     }
 }
