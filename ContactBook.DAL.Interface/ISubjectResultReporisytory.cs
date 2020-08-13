@@ -9,8 +9,9 @@ namespace ContactBook.DAL.Interface
     public interface ISubjectResultRepository
     {
  
-        Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> 
-            GetSubjectCourseSemesterSubjectId(int semesterId,int subjecId, int classId);
+        Task<IEnumerable<GetSubjectResultClassIdSemesterSubjectId>> GetSubjectResultClassIdSemesterSubjectId(int semesterId,int subjectId, int classId);
+        Task<GetSubjectResultBySubjectResultId> GetSubjectResultBySubjectResultId(int subjectResultId);
+
         Task<IEnumerable<GetSubjectResultByClassIdStudentId>>
             GetSubjectResultByClassIdStudentId(int classId, int studentId);
         Task<SaveResult> SaveSubjectResult(SaveResultPoint request);
