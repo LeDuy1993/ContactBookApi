@@ -73,5 +73,21 @@ namespace ContactBookApi.Controllers
 
             return await subjectResultRepository.GetSubjectResultBySubjectResultId(subjectResultId);
         }
+
+        [HttpGet]
+        [Route("/api/subjectResutl/GetClassStudentIdByClassIdStudentId/{classId}/{studentId}")]
+        public async Task<GetClassStudentIdByClassIdStudentId> GetClassStudentIdByClassIdStudentId(int classId, int studentId)
+        {
+
+            return await subjectResultRepository.GetClassStudentIdByClassIdStudentId(classId, studentId);
+        }
+
+        [HttpGet]
+        [Route("/api/subjectResutl/GetClassSubjectIdByClassIdSubjectId/{classId}/{subjectId}")]
+        public async Task<GetClassSubjectIdByClassIdSubjectId> GetClassSubjectIdByClassIdSubjectId(int classId, int subjectId)
+        {
+
+            return await subjectResultRepository.GetClassSubjectIdByClassIdSubjectId(classId, subjectId);
+        }
     }
 }
