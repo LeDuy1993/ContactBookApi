@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContactBook.Domain;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,8 +10,7 @@ namespace ContactBook.DAL
         protected IDbConnection connection;
         public BaseRepository()
         {
-            string connectionString = @"Data Source=duyle\sqlexpress;Initial Catalog=WebContactBook;Integrated Security=True";
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(Common.ConnectionString);
         }
     }
 }
