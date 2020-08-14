@@ -21,6 +21,13 @@ namespace ContactBook.DAL
                             commandType: CommandType.StoredProcedure));
         }
 
+        public async Task<IEnumerable<GetNationAll>> GetNationAll()
+        {
+            return await SqlMapper.QueryAsync<GetNationAll>(cnn: connection,
+                                                    sql: "sp_Get_NationAll",
+                                                    commandType: CommandType.StoredProcedure);
+        }
+
         public async Task<IEnumerable<NationView>> Gets()
         {
             return await SqlMapper.QueryAsync<NationView>(cnn: connection, 

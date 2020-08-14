@@ -14,43 +14,95 @@ namespace ContactBook.DAL
     {
         public async Task<SaveResult> SaveSubjectResult(SaveResultPoint request)
         {
-
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@StudentId", request.StudentId);
+            parameters.Add("@ClassStudentId", request.ClassStudentId);
             parameters.Add("@SemesterId", request.SemesterId);
-            parameters.Add("@SubjectId", request.SubjectId);
-            parameters.Add("@TypePointId", request.TypePointId);
-            parameters.Add("@CourseId", request.CourseId);
-            parameters.Add("@ClassId", request.ClassId);
-            parameters.Add("@Point", request.Point);
+            parameters.Add("@ClassSubjectId", request.ClassSubjectId);
+            parameters.Add("@ListPoint", request.ListPoint);
+            parameters.Add("@ListDate", request.ListDate);
             parameters.Add("@SubjectResultId", request.SubjectResultId);
-
 
             return (await SqlMapper.QueryFirstOrDefaultAsync<SaveResult>(cnn: connection,
                                         sql: "sp_Save_SubjectResult",
                                         param: parameters,
                                         commandType: CommandType.StoredProcedure));
-
-
         }
-
         public async Task<IEnumerable<GetAllTypePoint>> GetAllTypePoint()
         {
+
             return await SqlMapper.QueryAsync<GetAllTypePoint>(cnn: connection,
                                                    sql: "sp_Get_All_TypePoint",
                                                    commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<IEnumerable<GetSubjectCourseSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int courseId, int semesterId, int subjecId, int classId)
+        public async Task<IEnumerable<GetSubjectResultClassIdSemesterSubjectId>> GetSubjectResultClassIdSemesterSubjectId(int semesterId, int subjectId, int classId)
+        {
+
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@SemesterId", semesterId);
+            parameters.Add("@SubjectId", subjectId);
+            parameters.Add("@ClassId", classId);
+            return await SqlMapper.QueryAsync<GetSubjectResultClassIdSemesterSubjectId>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_Subject_ByClassId_SemesterId_SubjectId",
+                            commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<IEnumerable<GetSubjectResultByClassIdStudentId>> GetSubjectResultByClassIdStudentId(int classId, int studentId)
+        {
+
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@classId", classId);
+            parameters.Add("@StudentId", studentId);
+         
+            return await SqlMapper.QueryAsync<GetSubjectResultByClassIdStudentId>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_SubjectResult_ByClassId_StudentId",
+                            commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<GetSubjectResultBySubjectResultId> GetSubjectResultBySubjectResultId(int subjectResultId)
+        {
+            
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@SubjectResultId", subjectResultId);
+            return await SqlMapper.QueryFirstOrDefaultAsync<GetSubjectResultBySubjectResultId>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_Subject_BySubjectResultId",
+                            commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<IEnumerable<GetSubjectResultByClassId>> GetSubjectResultByClassId(int classId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@CourseId", courseId);
-            parameters.Add("@SemesterId", semesterId);
-            parameters.Add("@SubjectId", subjecId);
-            parameters.Add("@ClassId", classId);
-            return await SqlMapper.QueryAsync<GetSubjectCourseSemesterSubjectId>(cnn: connection,
+            parameters.Add("@classId", classId);
+            return await SqlMapper.QueryAsync<GetSubjectResultByClassId>(cnn: connection,
                              param: parameters,
-                            sql: "sp_Get_Subject_ByCourseId_SemesterId_SubjectId",
+                            sql: "sp_Get_SubjectResult_ByClassId",
+                            commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<GetClassStudentIdByClassIdStudentId> GetClassStudentIdByClassIdStudentId(int classId, int studentId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@ClassId", classId);
+            parameters.Add("@StudentId", studentId);
+
+            return await SqlMapper.QueryFirstOrDefaultAsync<GetClassStudentIdByClassIdStudentId>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_ClassStudentId_ByClassId_StudentId",
+                            commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<GetClassSubjectIdByClassIdSubjectId> GetClassSubjectIdByClassIdSubjectId(int classId, int subjectId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@ClassId", classId);
+            parameters.Add("@SubjectId", subjectId);
+
+            return await SqlMapper.QueryFirstOrDefaultAsync<GetClassSubjectIdByClassIdSubjectId>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_ClassSubjectId_ByClassId_SubjectId",
                             commandType: CommandType.StoredProcedure);
         }
     }

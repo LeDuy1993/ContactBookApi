@@ -16,6 +16,7 @@ namespace ContactBook.DAL
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@ClassId", classId);
+
             return await SqlMapper.QueryFirstOrDefaultAsync<DeleteClassResult>(cnn: connection,
                              param: parameters,
                             sql: "sp_Delete_Class",
@@ -27,6 +28,7 @@ namespace ContactBook.DAL
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@GradeId", gradeId);
             parameters.Add("@CourseId", courseId);
+
             return (await SqlMapper.QueryAsync<GetClassbyGradeIdCourseId>(cnn: connection,
                              param: parameters,
                             sql: "sp_Get_ClassRooms_ByCourseIdAndGradeId",
@@ -36,6 +38,17 @@ namespace ContactBook.DAL
         public async Task<IEnumerable<GetClassAll>> GetClassAll()
         {
             return await SqlMapper.QueryAsync<GetClassAll>(connection, "sp_Get_ClassRoomsAll", CommandType.StoredProcedure);
+        }
+
+        public async Task<GetClassByClassId> GetClassByClassId(int classId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@ClassId", classId);
+
+            return await SqlMapper.QueryFirstOrDefaultAsync<GetClassByClassId>(cnn: connection,
+                            param: parameters,
+                           sql: "sp_Get_ClassRoom_ByClassId",
+                           commandType: CommandType.StoredProcedure);
         }
 
         public async Task<SaveClassResult> Save(SaveClassRequest request)
@@ -48,6 +61,7 @@ namespace ContactBook.DAL
                 parameters.Add("@GradeId", request.GradeId);
                 parameters.Add("@CourseId", request.CourseId);
                 parameters.Add("@TeacherId", request.TeacherId);
+
                 return (await SqlMapper.QueryFirstOrDefaultAsync<SaveClassResult>(cnn: connection,
                                             sql: "Sp_Save_Class",
                                             param: parameters,
