@@ -4,9 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using ContactBook.DAL;
 using ContactBook.DAL.Interface;
+using ContactBook.Domain;
+using ContactBookApi.Database.DbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +30,9 @@ namespace ContactBookApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Common.ConnectionString));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IClassRepository, ClassRepository>();
             services.AddScoped<IDegreeRepository, DegreeRepository>();
