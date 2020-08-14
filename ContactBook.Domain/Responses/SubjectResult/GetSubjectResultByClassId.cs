@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ContactBook.Domain.Responses.SubjectResult
 {
-    public class GetSubjectResultByClassIdStudentId
+    public class GetSubjectResultByClassId
     {
         public int SubjectResultId { get; set; }
         public int StudentId { get; set; }
@@ -15,7 +15,5 @@ namespace ContactBook.Domain.Responses.SubjectResult
         public string ListPoint { get; set; }
         public string ListDate { get; set; }
         public string TeacherName { get; set; }
-
-
     }
 }

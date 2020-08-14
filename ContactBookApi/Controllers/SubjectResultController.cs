@@ -30,30 +30,47 @@ namespace ContactBookApi.Controllers
         [Route("/api/subjectResutl/GetSubjectResultClassIdSemesterSubjectId/{semesterId}/{subjectId}/{classId}")]
         public async Task<IEnumerable<GetSubjectResultClassIdSemesterSubjectId>> GetSubjectCourseSemesterSubjectId(int semesterId, int subjectId, int classId)
         {
+
             return await subjectResultRepository.GetSubjectResultClassIdSemesterSubjectId(semesterId, subjectId, classId);
         }
+
         [HttpGet]
         [Route("/api/subjectResutl/GetSubjectResultByCourseIdStudentId/{classId}/{studentId}")]
         public async Task<IEnumerable<GetSubjectResultByClassIdStudentId>> GetSubjectResultByClassIdStudentId(int classId, int studentId)
         {
+
             return await subjectResultRepository.GetSubjectResultByClassIdStudentId(classId, studentId);
-         }
+        }
+
+        [HttpGet]
+        [Route("/api/subjectResutl/GetSubjectResultByClassId/{classId}")]
+        public async Task<IEnumerable<GetSubjectResultByClassId>> GetSubjectResultByClassId(int classId)
+        {
+
+            return await subjectResultRepository.GetSubjectResultByClassId(classId);
+        }
+
         [HttpPost]
         [Route("/api/subjectResutl/SaveSubjectResult")]
         public async Task<SaveResult> SaveSubjectResult(SaveResultPoint request)
         {
+
             return await subjectResultRepository.SaveSubjectResult(request);
         }
+
         [HttpGet]
         [Route("/api/subjectResutl/GetAllTypePoint")]
         public async Task<IEnumerable<GetAllTypePoint>> GetAllTypePoint()
         {
+
             return await subjectResultRepository.GetAllTypePoint();
         }
+
         [HttpGet]
         [Route("/api/subjectResutl/GetSubjectResultBySubjectResultId/{subjectResultId}")]
         public async Task<GetSubjectResultBySubjectResultId> GetSubjectResultBySubjectResultId(int subjectResultId)
         {
+
             return await subjectResultRepository.GetSubjectResultBySubjectResultId(subjectResultId);
         }
     }
