@@ -10,6 +10,7 @@ namespace ContactBook.DAL.Interface
      public interface IStudentRepository
     {
         Task<IEnumerable<GetStudentAll>> GetStudentAll();
+        Task<IEnumerable<GetStudentsNew>> GetStudentsNew();
         Task<GetStudentDetail> GetStudentDetail(int studentid);
         Task<IEnumerable<GetStudentByClassId>> GetStudentByClassId(int classId);
         Task<SaveStudentResult> Save(SaveStudentRequest request);
