@@ -48,6 +48,11 @@ namespace ContactBook.DAL
                             commandType: CommandType.StoredProcedure));
         }
 
+        public async Task<IEnumerable<GetStudentsNew>> GetStudentsNew()
+        {
+            return await SqlMapper.QueryAsync<GetStudentsNew>(connection, "sp_Get_Students_New", CommandType.StoredProcedure);
+        }
+
         public async Task<SaveStudentResult> Save(SaveStudentRequest request)
         {
             try

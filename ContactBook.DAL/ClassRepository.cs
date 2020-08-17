@@ -51,6 +51,16 @@ namespace ContactBook.DAL
                            commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<IEnumerable<GetClassByCourseId>> GetClassByCourseId(int courseId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CourseId", courseId);
+            return (await SqlMapper.QueryAsync<GetClassByCourseId>(cnn: connection,
+                             param: parameters,
+                            sql: "sp_Get_ClassRoomsAll_byCourseId",
+                            commandType: CommandType.StoredProcedure));
+        }
+
         public async Task<SaveClassResult> Save(SaveClassRequest request)
         {
             try

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ContactBook.Domain.Responses.Class
 {
-    public class GetClassbyGradeIdCourseId
+    public class GetClassByCourseId
     {
         public int ClassId { get; set; }
         public string ClassName { get; set; }

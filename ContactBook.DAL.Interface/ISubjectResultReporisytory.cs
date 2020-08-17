@@ -18,5 +18,7 @@ namespace ContactBook.DAL.Interface
            GetSubjectResultByClassId(int classId);
         Task<SaveResult> SaveSubjectResult(SaveResultPoint request);
         Task<IEnumerable<GetAllTypePoint>> GetAllTypePoint();
+        Task<GetClassStudentIdByClassIdStudentId> GetClassStudentIdByClassIdStudentId(int classId, int studentId);
+        Task<GetClassSubjectIdByClassIdSubjectId> GetClassSubjectIdByClassIdSubjectId(int classId, int subjectId);
     }
 }

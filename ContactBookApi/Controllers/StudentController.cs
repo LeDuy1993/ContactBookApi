@@ -26,6 +26,7 @@ namespace ContactBookApi.Controllers
         [Route("/api/student/GetStudentAll")]
         public async Task<IEnumerable<GetStudentAll>> GetStudentAll()
         {
+
             return await studentRepository.GetStudentAll();
         }
 
@@ -33,6 +34,7 @@ namespace ContactBookApi.Controllers
         [Route("/api/student/GetStudentDetail/{id}")]
         public async Task<GetStudentDetail> GetStudentDetail(int id)
         {
+
             return await studentRepository.GetStudentDetail(id);
         }
 
@@ -40,6 +42,7 @@ namespace ContactBookApi.Controllers
         [Route("/api/student/GetStudentByClassId/{classId}")]
         public async Task<IEnumerable<GetStudentByClassId>> GetStudentByClassId(int classId)
         {
+
             return await studentRepository.GetStudentByClassId(classId);
         }
 
@@ -47,6 +50,7 @@ namespace ContactBookApi.Controllers
         [Route("/api/student/save")]
         public async Task<SaveStudentResult> Save(SaveStudentRequest request)
         {
+
             return await studentRepository.Save(request);
         }
 
@@ -54,7 +58,16 @@ namespace ContactBookApi.Controllers
         [Route("/api/student/delete/{id}")]
         public async Task<DeleteStudentResult> Delete(int id)
         {
+
             return await studentRepository.Delete(id);
+        }
+
+        [HttpGet]
+        [Route("/api/student/GetStudentsNew")]
+        public async Task<IEnumerable<GetStudentsNew>> GetStudentsNew()
+        {
+
+            return await studentRepository.GetStudentsNew();
         }
     }
 }
