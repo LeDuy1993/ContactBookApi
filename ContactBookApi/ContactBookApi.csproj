@@ -10,6 +10,13 @@
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Models\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200813095805_InitIdentityDb.cs" />
+    <Compile Remove="Migrations\20200813095805_InitIdentityDb.Designer.cs" />
+    <Compile Remove="Migrations\20200814065524_init user.cs" />
+    <Compile Remove="Migrations\20200814065524_init user.Designer.cs" />
+  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />

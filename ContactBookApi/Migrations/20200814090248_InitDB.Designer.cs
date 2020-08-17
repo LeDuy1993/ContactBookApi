@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactBookApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200813095805_InitIdentityDb")]
-    partial class InitIdentityDb
+    [Migration("20200814090248_InitDB")]
+    partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
