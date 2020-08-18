@@ -5,5 +5,6 @@ namespace ContactBook.Domain
     public class ApplicationUser : IdentityUser
     {
         public string Avatar { get; set; }
+        public int CheckId { get; set; }
     }
 }

@@ -48,6 +48,7 @@ namespace ContactBookApi.Controllers
                 {
                     result.Success = siginResult.Succeeded;
                     result.UserId = user.Id;
+                    result.CheckId = user.CheckId;
                     result.Message = "Login success";
                 }
             }

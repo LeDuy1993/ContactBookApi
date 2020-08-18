@@ -66,5 +66,11 @@ namespace ContactBookApi.Controllers
         {
             return await classRepository.GetClassByCourseId(courseId);
         }
+        [HttpGet]
+        [Route("/api/class/GetClassStudent/{studentId}")]
+        public async Task<GetClassStudent> GetClassStudent(int studentId)
+        {
+            return await classRepository.GetClassStudent(studentId);
+        }
     }
 }
