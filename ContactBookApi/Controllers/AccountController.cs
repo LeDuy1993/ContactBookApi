@@ -1,11 +1,14 @@
 ﻿using ContactBook.Domain;
 using ContactBook.Domain.Repuests.Account;
 using ContactBook.Domain.Responses.Account;
+using Dapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,9 +22,11 @@ namespace ContactBookApi.Controllers
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
 
+
         public AccountController(UserManager<ApplicationUser> userManager,
                                  SignInManager<ApplicationUser> signInManager,
-                                 RoleManager<IdentityRole> roleManager)
+                                 RoleManager<IdentityRole> roleManager
+                             )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -50,13 +55,12 @@ namespace ContactBookApi.Controllers
                     result.UserId = user.Id;
                     result.CheckId = user.CheckId;
                     result.Message = "Login success";
+                    result.Role = await userManager.IsInRoleAsync(user, "Teacher");
                 }
             }
 
             return result;
         }
-
-
         [HttpPost]
         [Route("/api/account/register")]
         public async Task<RegisterResult> Register(RegisterRequest request)
@@ -80,5 +84,6 @@ namespace ContactBookApi.Controllers
             }
             return result;
         }
+
     }
 }
