@@ -25,7 +25,7 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
-		<PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\ContactBook.DAL.Interface\ContactBook.DAL.Interface.csproj" />
